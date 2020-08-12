@@ -1,3 +1,5 @@
+import { getCustomRepository } from 'typeorm';
+
 import Comment from '@models/Comment';
 import CommentsRepository from '@repositories/CommentsRepository';
 
@@ -7,17 +9,15 @@ interface Request {
 }
 
 class CreateCommentService {
-  private commentsRepository: CommentsRepository;
+  public async execute({ text, date }: Request): Promise<Comment> {
+    const commentsRepository = getCustomRepository(CommentsRepository);
 
-  constructor(commentsRepository: CommentsRepository) {
-    this.commentsRepository = commentsRepository;
-  }
-
-  public execute({ text, date }: Request): Comment {
-    const comment = this.commentsRepository.create({
+    const comment = commentsRepository.create({
       text,
       date,
     });
+
+    await commentsRepository.save(comment);
 
     return comment;
   }
