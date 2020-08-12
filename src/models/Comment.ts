@@ -1,17 +1,15 @@
-import { uuid } from 'uuidv4';
+import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 
+@Entity('comments')
 class Comment {
+  @PrimaryGeneratedColumn('uuid')
   id: string;
 
+  @Column()
   text: string;
 
+  @Column('timestamp')
   date: Date;
-
-  constructor({ text, date }: Omit<Comment, 'id'>) {
-    this.id = uuid();
-    this.text = text;
-    this.date = date;
-  }
 }
 
 export default Comment;
