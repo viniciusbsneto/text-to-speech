@@ -1,7 +1,17 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
 
-function App() {
-  return <h1>IBM Watson - Text To Speech</h1>
-}
+import GlobalStyle from './styles/global';
+
+import Routes from './routes';
+
+const App: React.FC = () => (
+  <>
+    <GlobalStyle />
+    <BrowserRouter>
+      <Routes />
+    </BrowserRouter>
+  </>
+);
 
 export default App;
