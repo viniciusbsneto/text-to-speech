@@ -10,6 +10,9 @@ class Comment {
   @Column()
   text: string;
 
+  @Column()
+  speech: string;
+
   @CreateDateColumn()
   created_at: Date;
 }

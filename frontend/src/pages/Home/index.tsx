@@ -65,7 +65,10 @@ const Home: React.FC = () => {
                 <p>{comment.text}</p>
                 <span>{comment.date}</span>
               </div>
-              <button type="button">Ouvir</button>
+              <audio
+                controls
+                src="http://localhost:3333/files/057224fe914e03c25d04-Corndogs_in_Santa_Monica.mp3"
+              />
             </li>
           ))
         ) : (
