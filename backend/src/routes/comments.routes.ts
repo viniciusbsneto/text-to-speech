@@ -1,15 +1,11 @@
 import { Router } from 'express';
 import { getRepository } from 'typeorm';
-import multer from 'multer';
 
 import CreateCommentService from '@services/CreateCommentService';
-import UpdateCommentSpeechService from '@services/UpdateCommentSpeechService';
+import TextToSpeechService from '@services/TextToSpeechService';
 import Comment from '@models/Comment';
-import uploadConfig from '../config/upload';
 
 const commentsRouter = Router();
-
-const upload = multer(uploadConfig);
 
 commentsRouter.get('/', async (request, response) => {
   const commentsRepository = getRepository(Comment);
@@ -24,33 +20,21 @@ commentsRouter.post('/', async (request, response) => {
 
     const createComment = new CreateCommentService();
 
-    const comment = await createComment.execute({
+    const textToSpeech = new TextToSpeechService();
+
+    const speech = await textToSpeech.execute({
       text,
     });
 
-    return response.json(comment);
-  } catch (err) {
-    return response.status(400).json({ error: err.message });
-  }
-});
-
-commentsRouter.patch('/speech', upload.single('speech'), async (request, response) => {
-  try {
-    const { comment_id } = request.body;
-
-    const updateCommentSpeechService = new UpdateCommentSpeechService();
-
-    const comment = await updateCommentSpeechService.execute({
-      comment_id,
-      speechFilename: request.file.filename,
+    const comment = await createComment.execute({
+      text,
+      speech,
     });
 
     return response.json(comment);
   } catch (err) {
     return response.status(400).json({ error: err.message });
   }
-
-  response.json({ message: 'Speech file has been uploaded.' });
 });
 
 export default commentsRouter;
