@@ -7,6 +7,7 @@ import api from '../../services/api';
 interface Comment {
   id: string;
   text: string;
+  speech: string;
   date: Date;
 }
 
@@ -67,7 +68,7 @@ const Home: React.FC = () => {
               </div>
               <audio
                 controls
-                src="http://localhost:3333/files/057224fe914e03c25d04-Corndogs_in_Santa_Monica.mp3"
+                src={`http://localhost:3333/files/${comment.speech}`}
               />
             </li>
           ))
