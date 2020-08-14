@@ -66,9 +66,9 @@ export const CommentList = styled.ul`
 
   width: 100%;
 
-
   li {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-between;
     background: #fff;
@@ -89,23 +89,8 @@ export const CommentList = styled.ul`
       }
     }
 
-    button {
-    background: #365df0;
-    border-radius: 5px;
-    padding: 0 16px;
-    color: #fff;
-    height: 50px;
-    margin-right: 8px;
-    border: 0;
-    font-weight: 500;
-    transition: background-color 0.2s;
-
-    &:hover {
-      background: #2f55cc;
-    }
-
-    &:active {
-      background: #244aa8;
+    audio {
+      width: 100%;
     }
   }
 `;
