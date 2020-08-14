@@ -121,13 +121,23 @@ yarn start
 
 The following tools were used in the construction of the project:
 
-#### [](https://github.com/viniciusbsneto/catch-and-mall#catch-and-mall-web-application)**Catch N' Mall Web Application**
+#### [](https://github.com/viniciusbsneto/catch-and-mall#catch-and-mall-web-application)**Text To Speech Web Application**
 
 -   **[Typescript](https://www.typescriptlang.org/)**
 -   **[React](https://en.reactjs.org/)**
 -   **[Create-React-App](https://create-react-app.dev/)**
 -   **[Styled-Components](https://styled-components.com/)**
 -   **[Axios](https://github.com/axios/axios)**
+-   **[NodeJS](https://nodejs.org/)**
+-   **[Express](https://expressjs.com/)**
+-   **[CORS](https://yarnpkg.com/package/cors)**
+-   **[UUIDV4](https://yarnpkg.com/package/uuid)**
+-   **[TypeORM](https://typeorm.io/#/)**
+-   **[MySQL](https://www.mysql.com/)**
+-   **[Docker](https://www.docker.com/)**
+-   **[IBM Watson Text To Speech Node SDK](https://github.com/watson-developer-cloud/text-to-speech-nodejs)**
+-   **[DotEnv](https://yarnpkg.com/package/dotenv)**
+
 
 > See the file  [package.json](https://github.com/viniciusbsneto/text-to-speech/blob/master/package.json)
 
