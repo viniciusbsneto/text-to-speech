@@ -29,6 +29,14 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "object-curly-newline": "off",
+        "@typescript-eslint/explicit-function-return-type": [
+          "error",
+          {
+            "allowExpressions": true
+          }
+        ],
+        "arrow-parens": "off",
         "prettier/prettier": "error",
         "react-hooks/rules-of-hooks": "error",
         "react-hooks/exhaustive-deps": "warn",

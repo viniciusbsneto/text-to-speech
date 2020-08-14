@@ -1,90 +1,79 @@
-import React from 'react';
+import React, { useState, useEffect, useCallback, FormEvent } from 'react';
 
 import { Container, Comment, CommentList } from './styles';
 
-const Home: React.FC = () => (
-  <Container>
-    <Comment>
-      <form>
-        <h1>Comentário</h1>
+import api from '../../services/api';
 
-        <textarea placeholder="Digite um comentário..." />
+interface Comment {
+  id: string;
+  text: string;
+  date: Date;
+}
 
-        <button type="submit">Cadastrar</button>
-      </form>
-    </Comment>
+const Home: React.FC = () => {
+  const [comments, setComments] = useState<Comment[]>([]);
+  const [newCommentText, setNewCommentText] = useState('');
+  const [loading, setLoading] = useState(true);
 
-    <CommentList>
-      <h1>Comentários</h1>
-      <ul>
-        <li>
-          <div>
-            <p>
-              Este é um exemplo de comentário a ser transformado em aúdio pelo
-              IBM Watson Text To Speech.
-            </p>
-            <span>16:39</span>
-          </div>
-          <button type="button">Ouvir</button>
-        </li>
+  const handleAddComment = useCallback(
+    async (event: FormEvent<HTMLFormElement>): Promise<void> => {
+      event.preventDefault();
 
-        <li>
-          <div>
-            <p>
-              Este é um exemplo de comentário a ser transformado em aúdio pelo
-              IBM Watson Text To Speech.
-            </p>
-            <span>16:39</span>
-          </div>
-          <button type="button">Ouvir</button>
-        </li>
+      const newComment = {
+        text: newCommentText,
+      };
 
-        <li>
-          <div>
-            <p>
-              Este é um exemplo de comentário a ser transformado em aúdio pelo
-              IBM Watson Text To Speech.
-            </p>
-            <span>16:39</span>
-          </div>
-          <button type="button">Ouvir</button>
-        </li>
+      await api.post('/comments', newComment);
 
-        <li>
-          <div>
-            <p>
-              Este é um exemplo de comentário a ser transformado em aúdio pelo
-              IBM Watson Text To Speech.
-            </p>
-            <span>16:39</span>
-          </div>
-          <button type="button">Ouvir</button>
-        </li>
+      setNewCommentText('');
+    },
+    [newCommentText],
+  );
 
-        <li>
-          <div>
-            <p>
-              Este é um exemplo de comentário a ser transformado em aúdio pelo
-              IBM Watson Text To Speech.
-            </p>
-            <span>16:39</span>
-          </div>
-          <button type="button">Ouvir</button>
-        </li>
+  useEffect(() => {
+    setLoading(true);
+    api.get('/comments').then(response => {
+      setComments(response.data);
+      setLoading(false);
+    });
+  }, [handleAddComment]);
 
-        <li>
-          <div>
-            <p>
-              Este é um exemplo de comentário a ser transformado em aúdio pelo
-              IBM Watson Text To Speech.
-            </p>
-            <span>16:39</span>
-          </div>
-          <button type="button">Ouvir</button>
-        </li>
-      </ul>
-    </CommentList>
-  </Container>
-);
+  return (
+    <Container>
+      <Comment>
+        <form onSubmit={handleAddComment}>
+          <h1>Comentário</h1>
+
+          <textarea
+            value={newCommentText}
+            onChange={e => setNewCommentText(e.target.value)}
+            placeholder="Digite um comentário..."
+          />
+
+          <button type="submit">Cadastrar</button>
+        </form>
+      </Comment>
+
+      <CommentList>
+        <h1>Comentários</h1>
+        {loading ? (
+          <span>Carregando comentários...</span>
+        ) : comments.length ? (
+          comments.map(comment => (
+            <li key={comment.id}>
+              <div>
+                <p>{comment.text}</p>
+                <span>{comment.date}</span>
+              </div>
+              <button type="button">Ouvir</button>
+            </li>
+          ))
+        ) : (
+          <span>Nenhum comentário cadastrado.</span>
+        )}
+      </CommentList>
+    </Container>
+  );
+};
 
 export default Home;

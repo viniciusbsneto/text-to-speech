@@ -18,9 +18,9 @@ export default class CreateComments1597270845884 implements MigrationInterface {
             isNullable: false,
           },
           {
-            name: 'date',
+            name: 'created_at',
             type: 'timestamp',
-            isNullable: false,
+            default: 'now()',
           },
         ],
       }),
