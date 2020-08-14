@@ -26,10 +26,11 @@ export const Comment = styled.div`
     }
 
     textarea {
+      resize: none;
       background: #fff;
       border-radius: 5px;
       border: 2px solid #fff;
-      padding: 16px;
+      padding: 12px 20px;
       height: 200px;
       width: 100%;
     }
@@ -57,51 +58,54 @@ export const Comment = styled.div`
   }
 `;
 
-export const CommentList = styled.div`
+export const CommentList = styled.ul`
   display: flex;
   flex-direction: column;
   place-content: center;
-  align-items: center;
   margin-right: 80px;
 
   width: 100%;
 
-  ul {
-    li {
+
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    border-radius: 5px;
+    padding: 16px;
+    margin: 16px 0;
+    width: 100%;
+    height: 130px;
+
+    > div {
       display: flex;
-      background: #fff;
-      border-radius: 5px;
-      padding: 16px;
-      margin: 16px 0;
+      flex-direction: column;
+      margin: 0 16px;
 
-      > div {
-        display: flex;
-        flex-direction: column;
-        margin: 0 16px;
-
-        span {
-          font-size: 14px;
-          margin-top: 8px;
-        }
+      span {
+        font-size: 14px;
+        margin-top: 8px;
       }
+    }
 
-      button {
-      background: #365df0;
-      border-radius: 5px;
-      padding: 0 16px;
-      color: #fff;
-      height: 50px;
-      border: 0;
-      font-weight: 500;
-      transition: background-color 0.2s;
+    button {
+    background: #365df0;
+    border-radius: 5px;
+    padding: 0 16px;
+    color: #fff;
+    height: 50px;
+    margin-right: 8px;
+    border: 0;
+    font-weight: 500;
+    transition: background-color 0.2s;
 
-      &:hover {
-        background: #2f55cc;
-      }
+    &:hover {
+      background: #2f55cc;
+    }
 
-      &:active {
-        background: #244aa8;
-      }
+    &:active {
+      background: #244aa8;
     }
   }
 `;
