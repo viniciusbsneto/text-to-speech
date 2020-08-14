@@ -57,7 +57,9 @@ IBM Watson Text To Speech
 
 - [x] Add text comment
 - [x] Listen to speech (text comment converted into audio)
-  - IBM Watson Text To Speech NodeJS SDK
+  - Using IBM Watson Text To Speech from IBM Cloud Services
+- [x] Audio player
+  - Play, stop and resume speech
 
 ---
 
