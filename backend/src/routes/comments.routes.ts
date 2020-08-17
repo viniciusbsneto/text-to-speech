@@ -9,7 +9,11 @@ const commentsRouter = Router();
 
 commentsRouter.get('/', async (request, response) => {
   const commentsRepository = getRepository(Comment);
-  const comments = await commentsRepository.find();
+  const comments = await commentsRepository.find({
+    order: {
+      created_at: 'ASC',
+    },
+  });
 
   return response.json(comments);
 });
