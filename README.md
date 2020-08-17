@@ -169,7 +169,7 @@ The following tools were used in the construction of the project:
 -   **[DotEnv](https://yarnpkg.com/package/dotenv)**
 
 
-> See the file  [package.json](https://github.com/viniciusbsneto/text-to-speech/blob/master/package.json)
+> See the file  [package.json](https://github.com/viniciusbsneto/text-to-speech/blob/master/backend/package.json)
 
 #### [](https://github.com/viniciusbsneto/text-to-speech#utilit%C3%A1rios)**Utilitários**
 
