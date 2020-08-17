@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/media-has-caption */
+/* eslint-disable no-nested-ternary */
 import React, { useState, useEffect, useCallback, FormEvent } from 'react';
 
 import { Container, Comment, CommentList } from './styles';
@@ -16,6 +18,14 @@ const Home: React.FC = () => {
   const [newCommentText, setNewCommentText] = useState('');
   const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    setLoading(true);
+    api.get('/comments').then(response => {
+      setComments(response.data);
+      setLoading(false);
+    });
+  }, []);
+
   const handleAddComment = useCallback(
     async (event: FormEvent<HTMLFormElement>): Promise<void> => {
       event.preventDefault();
@@ -24,20 +34,14 @@ const Home: React.FC = () => {
         text: newCommentText,
       };
 
-      await api.post('/comments', newComment);
+      const response = await api.post('/comments', newComment);
+
+      setComments([...comments, response.data]);
 
       setNewCommentText('');
     },
-    [newCommentText],
+    [comments, newCommentText],
   );
-
-  useEffect(() => {
-    setLoading(true);
-    api.get('/comments').then(response => {
-      setComments(response.data);
-      setLoading(false);
-    });
-  }, [handleAddComment]);
 
   return (
     <Container>
