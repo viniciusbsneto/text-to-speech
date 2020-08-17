@@ -64,8 +64,8 @@ IBM Watson Text To Speech
 ---
 
 ## :hammer_and_wrench: Pending (in progress...) :hourglass_flowing_sand:
-1. [ ] **Fix bugs**
-  - Fix speech retrieval delay when adding comment.
+1. [ ] **Improve UI**
+  - Add UI feedback while comment text is being converted to audio.
 2. [ ] **Improve performance**
   - Look for re-rendering effects and eliminate them.
 3. [ ] **Responsive Design**
@@ -76,7 +76,7 @@ IBM Watson Text To Speech
 ### :pushpin: Pre-requisites
 
 Before you begin, you will need to have the following tools installed on your machine:
-[Git] (https://git-scm.com), [Yarn] (https://yarnpkg.com/).
+[Git] (https://git-scm.com), [Yarn] (https://yarnpkg.com/), [Docker] (https://www.docker.com/)
 In addition, it is good to have an editor to work with the code like [VSCode] (https://code.visualstudio.com/)
 
 ### Running the application
@@ -89,6 +89,17 @@ $ git clone git@github.com:viniciusbsneto/text-to-speech.git
 ```
 #### Back-end
 ```bash
+
+# Run MySQL docker container with parameters <database_name> and <database_user_password> of your choice
+docker run -p 3306:3306 --name <container_name> -e MYSQL_ROOT_PASSWORD=<database_user_password> -d mysql:latest
+
+# Check if the container has started
+docker ps
+
+# If it hasn't been started, run:
+docker start <container_name>
+
+# Enter MySQL container and create a database
 
 # Access the back-end project folder
 $ cd text-to-speech/backend
