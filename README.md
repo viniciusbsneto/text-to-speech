@@ -91,26 +91,26 @@ $ git clone git@github.com:viniciusbsneto/text-to-speech.git
 ```bash
 
 # Run MySQL docker container with parameters <database_name> and <database_user_password> of your choice
-docker run -p 3306:3306 --name <container_name> -e MYSQL_ROOT_PASSWORD=<database_user_password> -d mysql:latest
+$ docker run -p 3306:3306 --name <container_name> -e MYSQL_ROOT_PASSWORD=<database_user_password> -d mysql:latest
 
 # Check if the container has started
-docker ps
+$ docker ps
 
 # If it hasn't been started, run:
-docker start <container_name>
+$ docker start <container_name>
 
 # Enter MySQL container
-docker exec -it <container_name> bash
+$ docker exec -it <container_name> bash
 
 # Access MySQL terminal with root user
-mysql -u root -p
+$ mysql -u root -p
 
 # Create a database
 CREATE DATABASE <database_name>;
 
 # MySQL 8 (latest) has caching_sha2_password as an authentication method by default. NodeJS has not support for it yet.
-mysql_native_password should be used. Substitute <password> for a password of your choice in the following query and run it.
-Root user should not be used, but for now it's ok for the purpose of this application. DO NOT REMOVE STRING MARKS.
+# mysql_native_password should be used. Substitute <password> for a password of your choice in the following query and run it.
+# Root user should not be used, but for now it's ok for the purpose of this application. DO NOT REMOVE STRING MARKS.
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '<password>';
 FLUSH PRIVILEGES;
 
@@ -125,7 +125,7 @@ $ cd text-to-speech/backend
 $ yarn
 
 # Start the application
-yarn dev:server
+$ yarn dev:server
 
 # Yarn script will start the application at http://localhost:3333
 
@@ -140,7 +140,7 @@ $ cd text-to-speech/frontend
 $ yarn
 
 # Start the application
-yarn start
+$ yarn start
 
 # Yarn script will start the application at http://localhost:3000
 
