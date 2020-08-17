@@ -1,11 +1,20 @@
 import styled from 'styled-components';
 
-export const Container = styled.div`
-  height: 100vh;
+export const Container = styled.div``;
 
+export const Content = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: baseline;
+  justify-content: space-between;
+
+  margin: 0 auto;
+
+  width: 90%;
+  max-width: 1120px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;
 
 export const Comment = styled.div`
@@ -13,13 +22,14 @@ export const Comment = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-right: 64px;
 
   width: 100%;
 
   form {
-    margin: 80px 0;
-    width: 340px;
+    width: 100%;
     text-align: center;
+    margin: 64px 0;
 
     h1 {
       margin-bottom: 16px;
@@ -56,13 +66,19 @@ export const Comment = styled.div`
       }
     }
   }
+
+  @media (max-width: 768px) {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: #f0f0f5;
+  }
 `;
 
 export const CommentList = styled.ul`
   display: flex;
   flex-direction: column;
   place-content: center;
-  margin-right: 80px;
 
   width: 100%;
 
@@ -76,7 +92,6 @@ export const CommentList = styled.ul`
     padding: 16px;
     margin: 16px 0;
     width: 100%;
-    height: 130px;
 
     > div {
       display: flex;

@@ -2,7 +2,7 @@
 /* eslint-disable no-nested-ternary */
 import React, { useState, useEffect, useCallback, FormEvent } from 'react';
 
-import { Container, Comment, CommentList } from './styles';
+import { Container, Content, Comment, CommentList } from './styles';
 
 import api from '../../services/api';
 
@@ -45,41 +45,43 @@ const Home: React.FC = () => {
 
   return (
     <Container>
-      <Comment>
-        <form onSubmit={handleAddComment}>
-          <h1>Comentário</h1>
+      <Content>
+        <Comment>
+          <form onSubmit={handleAddComment}>
+            <h1>Comentário</h1>
 
-          <textarea
-            value={newCommentText}
-            onChange={e => setNewCommentText(e.target.value)}
-            placeholder="Digite um comentário..."
-          />
+            <textarea
+              value={newCommentText}
+              onChange={e => setNewCommentText(e.target.value)}
+              placeholder="Digite um comentário..."
+            />
 
-          <button type="submit">Cadastrar</button>
-        </form>
-      </Comment>
+            <button type="submit">Cadastrar</button>
+          </form>
+        </Comment>
 
-      <CommentList>
-        <h1>Comentários</h1>
-        {loading ? (
-          <span>Carregando comentários...</span>
-        ) : comments.length ? (
-          comments.map(comment => (
-            <li key={comment.id}>
-              <div>
-                <p>{comment.text}</p>
-                <span>{comment.date}</span>
-              </div>
-              <audio
-                controls
-                src={`http://localhost:3333/files/${comment.speech}`}
-              />
-            </li>
-          ))
-        ) : (
-          <span>Nenhum comentário cadastrado.</span>
-        )}
-      </CommentList>
+        <CommentList>
+          <h1>Comentários</h1>
+          {loading ? (
+            <span>Carregando comentários...</span>
+          ) : comments.length ? (
+            comments.map(comment => (
+              <li key={comment.id}>
+                <div>
+                  <p>{comment.text}</p>
+                  <span>{comment.date}</span>
+                </div>
+                <audio
+                  controls
+                  src={`http://localhost:3333/files/${comment.speech}`}
+                />
+              </li>
+            ))
+          ) : (
+            <span>Nenhum comentário cadastrado.</span>
+          )}
+        </CommentList>
+      </Content>
     </Container>
   );
 };
