@@ -108,7 +108,9 @@ mysql -u root -p
 # Create a database
 CREATE DATABASE <database_name>;
 
-# MySQL 8 (latest) has caching_sha2_password as an authentication method by default. NodeJS has not support for it yet. For now use mysql_native_password method. Substitute <password> for a password of your choice in the following query and run it. Root user should not be used, but for now it's ok for the purpose of this application. DO NOT REMOVE STRING MARKS.
+# MySQL 8 (latest) has caching_sha2_password as an authentication method by default. NodeJS has not support for it yet.
+mysql_native_password should be used. Substitute <password> for a password of your choice in the following query and run it.
+Root user should not be used, but for now it's ok for the purpose of this application. DO NOT REMOVE STRING MARKS.
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '<password>';
 FLUSH PRIVILEGES;
 
