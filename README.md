@@ -67,7 +67,7 @@ IBM Watson Text To Speech
 1. [ ] **Improve UI**
   - Add UI feedback while comment text is being converted to audio.
 2. [x] **Responsive Design**
-  - ~~Application is not entirely responsive yet. Still working on that.
+  - ~~Application is not entirely responsive yet. Still working on that.~~
   - Layout is now responsive.
 3. [ ] **Tests**
   - Write tests with Jest. I should be pushing some tests very soon.
