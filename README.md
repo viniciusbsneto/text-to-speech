@@ -114,8 +114,6 @@ CREATE DATABASE <database_name>;
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '<password>';
 FLUSH PRIVILEGES;
 
-# Set ormconfig.json file with your information (username, password, database)
-
 # Access the back-end project folder and open it in a code editor
 $ cd text-to-speech/backend
 
