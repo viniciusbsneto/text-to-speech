@@ -66,12 +66,12 @@ IBM Watson Text To Speech
 ## :hammer_and_wrench: Pending (in progress...) :hourglass_flowing_sand:
 1. [ ] **Improve UI**
   - Add UI feedback while comment text is being converted to audio.
-2. [ ] **Improve performance**
-  - Look for re-rendering effects and eliminate them.
-3. [ ] **Responsive Design**
+2. [ ] **Responsive Design**
   - Application is not entirely responsive yet. Still working on that.
-4. [ ] **Tests**
+3. [ ] **Tests**
   - Write tests with Jest. I should be pushing some tests very soon.
+4. [ ] **Improve performance**
+  - Look for re-rendering effects and eliminate them.
 
 ### :pushpin: Pre-requisites
 
