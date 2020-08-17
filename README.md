@@ -33,7 +33,7 @@
 
 
 <h4 align="center"> 
-	 Status: Finished 🚧 Fixing bugs... 🚧
+	 Status: Core Finished 🚧 Improving UI... 🚧
 </h4>
 
 <p align="center">
