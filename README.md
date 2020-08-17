@@ -119,6 +119,8 @@ $ cd text-to-speech/backend
 
 # Set ormconfig.json file with your information (username, password, database)
 
+# Rename .env.example file to .env and provide your API Key and API URL of your IBM Watson Text To Speech Service instance.
+
 # Install dependencies
 $ yarn
 
